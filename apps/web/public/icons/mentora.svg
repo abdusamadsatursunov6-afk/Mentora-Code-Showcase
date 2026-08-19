@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Mentora</title>
+  <rect width="512" height="512" fill="#172554"/>
+  <circle cx="405" cy="108" r="38" fill="#f59e0b"/>
+  <path d="M116 356V156h58l82 105 82-105h58v200h-60V247l-80 101-80-101v109z" fill="#f8fafc"/>
+  <path d="M382 69v78M343 108h78" stroke="#fff" stroke-width="13" stroke-linecap="round"/>
+</svg>

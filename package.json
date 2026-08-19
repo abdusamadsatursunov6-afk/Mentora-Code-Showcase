@@ -1,0 +1,34 @@
+{
+  "name": "mentora",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Mentora — Education Operating System for teachers. Monorepo root.",
+  "workspaces": [
+    "apps/web",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev --workspace @mentora/web",
+    "build:web": "npm run build --workspace @mentora/web",
+    "lint:web": "npm run lint --workspace @mentora/web",
+    "typecheck:web": "npm run typecheck --workspace @mentora/web",
+    "test:web": "npm run test --workspace @mentora/web",
+    "format": "prettier --write \"apps/web/**/*.{ts,tsx,css,md}\" \"packages/**/src/**/*.{ts,tsx}\"",
+    "format:check": "prettier --check \"apps/web/**/*.{ts,tsx,css,md}\" \"packages/**/src/**/*.{ts,tsx}\""
+  },
+  "devDependencies": {
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
+    "eslint": "9.39.5",
+    "prettier": "^3.3.3",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "overrides": {
+    "postcss": "8.5.25",
+    "sharp": "0.35.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
