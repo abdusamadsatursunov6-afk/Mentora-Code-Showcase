@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#081728" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="application-name" content="Mentora" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="description" content="Mentora — команда и история EdTech-платформы, соединяющей образование и искусственный интеллект." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="author" content="Mentora" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:site_name" content="Mentora" />
+  <meta property="og:title" content="Mentora — Team & Story" />
+  <meta property="og:description" content="Люди, продукт и история Mentora — AI-native EdTech-платформы из Узбекистана." />
+  <meta property="og:image" content="https://mentoraedu.uz/team/assets/og-mentora-team.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Mentora — Team & Story</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/icon-192.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css?v=15" />
+</head>
+<body>
+  <a class="skip-link" href="#story">Перейти к содержанию</a>
+  <div class="page-loader" aria-hidden="true">
+    <div class="loader-cube"><span>M</span></div>
+    <div class="loader-label">MENTORA / TEAM & STORY</div>
+  </div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="mobile-chapter-dock" id="mobileChapterDock" aria-hidden="true">
+    <span class="mobile-chapter-kicker">РАЗДЕЛ</span>
+    <span class="mobile-chapter-index" id="mobileChapterIndex">01</span>
+    <b id="mobileChapterName">История</b>
+    <i><span id="mobileChapterProgress"></span></i>
+  </div>
+  <nav class="chapter-rail" id="chapterRail" aria-label="Навигация по разделам">
+    <a href="#story" data-chapter-link="story"><span>01</span><i></i><b>История</b></a>
+    <a href="#origin" data-chapter-link="origin"><span>02</span><i></i><b>Система</b></a>
+    <a href="#founder" data-chapter-link="founder"><span>03</span><i></i><b>Основатель</b></a>
+    <a href="#builder" data-chapter-link="builder"><span>04</span><i></i><b>Создатель</b></a>
+    <a href="#dna" data-chapter-link="dna"><span>05</span><i></i><b>Принципы</b></a>
+    <a href="#product" data-chapter-link="product"><span>06</span><i></i><b>Продукт</b></a>
+    <a href="#experience" data-chapter-link="experience"><span>07</span><i></i><b>Flow</b></a>
+    <a href="#vision" data-chapter-link="vision"><span>08</span><i></i><b>Экосистема</b></a>
+    <a href="#journey" data-chapter-link="journey"><span>09</span><i></i><b>Путь</b></a>
+    <a href="#team" data-chapter-link="team"><span>10</span><i></i><b>Команда</b></a>
+  </nav>
+  <div class="noise"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#top" aria-label="Mentora home">
+      <span class="brand-mark">M</span>
+      <span>Mentora</span>
+    </a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#story">История</a>
+      <a href="#founder">Основатель</a>
+      <a href="#builder">Создатель</a>
+      <a href="#dna">Принципы</a>
+      <a href="#product">Продукт</a>
+      <a href="#experience">Experience</a>
+      <a href="#team">Команда</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switcher" aria-label="Language"><a class="lang-link is-active" href="index.html" hreflang="ru">RU</a><a class="lang-link" href="uz.html" hreflang="uz">UZ</a><a class="lang-link" href="en.html" hreflang="en">EN</a></div>
+      <span class="status-pill"><i></i> Mentora · 2026</span>
+      <a class="nav-cta" href="#contact">Связаться</a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <div class="mobile-menu-index">MENTORA / NAVIGATION</div>
+      <div class="mobile-lang-switcher" aria-label="Language"><a class="is-active" href="index.html">RU</a><a href="uz.html">UZ</a><a href="en.html">EN</a></div>
+      <a href="#story"><span>01</span>История</a>
+      <a href="#origin"><span>02</span>Как строится</a>
+      <a href="#founder"><span>03</span>Основатель</a>
+      <a href="#builder"><span>04</span>Создатель</a>
+      <a href="#dna"><span>05</span>Принципы</a>
+      <a href="#product"><span>06</span>Продукт</a>
+      <a href="#experience"><span>07</span>Experience</a>
+      <a href="#vision"><span>08</span>Экосистема</a>
+      <a href="#journey"><span>09</span>Путь</a>
+      <a href="#team"><span>10</span>Команда</a>
+      <a href="#contact"><span>↗</span>Связаться</a>
+    </div>
+  </div>
+
+  <main id="top">
+    <section class="hero section-dark">
+      <canvas id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="hero-grid"></div>
+      <div class="hero-corridor" aria-hidden="true"><i class="corridor-frame"></i><i class="corridor-frame"></i><i class="corridor-frame"></i><i class="corridor-frame"></i><i class="corridor-frame"></i></div>
+      <div class="hero-cinematic-hud" aria-hidden="true"><span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span><div class="hero-stage-label"><span>DISCOVER / BUILD / SCALE</span><i></i><b>MENTORA / 15</b></div></div>
+      <div class="hero-focus-cross" aria-hidden="true"><span></span></div>
+      <div class="hero-ribbons" aria-hidden="true"><i class="hero-ribbon ribbon-1"></i><i class="hero-ribbon ribbon-2"></i><i class="hero-ribbon ribbon-3"></i></div>
+      <div class="hero-blur hero-blur-a"></div>
+      <div class="hero-blur hero-blur-b"></div>
+
+      <div class="hero-content reveal">
+        <div class="eyebrow"><span></span> MENTORA / TEAM & STORY</div>
+        <h1>Люди, которые<br><em>создают будущее</em><br>образования.</h1>
+        <p class="hero-copy">Mentora объединяет образование, искусственный интеллект и технологии, чтобы сделать работу учителя проще, а обучение — персональнее и эффективнее.</p>
+        <div class="hero-actions">
+          <a class="btn btn-beige magnetic" href="#story">Наша история <span>↘</span></a>
+          <a class="btn btn-ghost magnetic" href="#founder">Познакомиться с командой</a>
+        </div>
+        <div class="hero-meta" aria-label="Mentora platform highlights">
+          <div class="hero-meta-item"><small>AI-NATIVE</small><b>AI-логика урока</b></div>
+          <div class="hero-meta-item"><small>SCHOOL OS</small><b>4 роли · 1 система</b></div>
+          <div class="hero-meta-item"><small>GLOBAL</small><b>Мультиязычная платформа</b></div>
+        </div>
+      </div>
+
+      <div class="hero-object" id="heroObject" aria-hidden="true">
+        <div class="orbit orbit-a"></div>
+        <div class="orbit orbit-b"></div>
+        <div class="orbit orbit-c"></div>
+        <div class="cube-scene">
+          <div class="cube" id="mentoraCube">
+            <div class="cube-face cube-front">M</div>
+            <div class="cube-face cube-back">AI</div>
+            <div class="cube-face cube-right">EDU</div>
+            <div class="cube-face cube-left">∞</div>
+            <div class="cube-face cube-top">01</div>
+            <div class="cube-face cube-bottom">UZ</div>
+          </div>
+        </div>
+        <div class="sat sat-1">AI</div>
+        <div class="sat sat-2">EDU</div>
+        <div class="sat sat-3">∞</div>
+        <div class="hero-axis axis-x"></div>
+        <div class="hero-axis axis-y"></div>
+        <div class="hero-core-readout"><span>MENTORA CORE</span><b>01 / SYSTEM</b></div>
+      </div>
+
+      <div class="floating-panel panel-a" aria-hidden="true">
+        <span>PRODUCT LAYER</span><b>AI × Education</b><i></i>
+      </div>
+      <div class="floating-panel panel-b" aria-hidden="true">
+        <span>PLATFORM</span><b>One ecosystem</b><small>School · Teacher · Student · Parent</small>
+      </div>
+
+      <div class="hero-wordmark" aria-hidden="true">MENTORA</div>
+      <div class="hero-down">SCROLL TO EXPLORE <span>↓</span></div>
+    </section>
+
+    <section class="story section-beige" id="story">
+      <div class="section-kicker">01 / STORY</div>
+      <div class="story-grid">
+        <div class="story-title reveal">
+          <h2>Мы строим не просто<br><em>AI-генератор уроков.</em></h2>
+        </div>
+        <div class="story-copy reveal">
+          <p class="lead">Mentora появилась из простой идеи: технологии должны экономить время учителя, а не создавать ещё один сложный инструмент.</p>
+          <p>Мы соединяем генерацию уроков, задания, тесты, презентации, классы и школьные процессы в одной понятной системе.</p>
+        </div>
+      </div>
+      <div class="story-stats reveal">
+        <div><b>4</b><span>ключевые роли</span></div>
+        <div><b>10+</b><span>языков интерфейса</span></div>
+        <div><b>1</b><span>образовательная экосистема</span></div>
+      </div>
+    </section>
+
+    <section class="origin section-dark" id="origin">
+      <div class="section-kicker light">02 / FROM PROBLEM TO SYSTEM</div>
+      <div class="origin-grid reveal">
+        <div class="origin-copy">
+          <small>MENTORA LOGIC</small>
+          <h2>Проблема → AI → система.</h2>
+          <p>Mentora не начинается с технологии. Сначала — реальная образовательная задача, затем AI-логика и только потом интерфейс и автоматизация.</p>
+        </div>
+        <div class="origin-stage" id="originStage">
+          <div class="origin-step is-active" data-origin-step="0"><span>01</span><b>Рутина</b><small>подготовка уроков и материалов</small></div>
+          <div class="origin-step" data-origin-step="1"><span>02</span><b>AI-ядро</b><small>структура, контент и персонализация</small></div>
+          <div class="origin-step" data-origin-step="2"><span>03</span><b>Экосистема</b><small>школа, классы, роли и результаты</small></div>
+          <div class="origin-core"><span>M</span><b>MENTORA</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="founder section-beige" id="founder">
+      <div class="section-kicker">03 / FOUNDER</div>
+      <div class="founder-grid">
+        <article class="founder-photo-card reveal tilt-card" data-tilt-strength="4">
+          <picture><source media="(max-width: 760px)" srcset="assets/founder-abdusamad-720.webp" type="image/webp"><source srcset="assets/founder-abdusamad-1152.webp" type="image/webp"><img src="assets/founder-abdusamad.jpeg" width="1152" height="1536" decoding="async" alt="Abdusamad Shatursunov"></picture>
+          <div class="founder-photo-overlay"></div>
+          <div class="founder-photo-meta"><span>FOUNDER & CEO</span><b>Abdusamad Shatursunov</b></div>
+        </article>
+        <div class="founder-copy reveal">
+          <small>PRODUCT CREATOR / EDUCATION × AI</small>
+          <h2>Сначала образовательная логика.<br><em>Потом технология.</em></h2>
+          <p>Mentora создаётся на стыке методики, пользовательского опыта, AI-инструментов и реальной работы образовательных центров и школ.</p>
+          <div class="founder-points">
+            <div><span>01</span><b>Product Vision</b><small>Направление и логика продукта</small></div>
+            <div><span>02</span><b>Education Logic</b><small>Структура урока и образовательные сценарии</small></div>
+            <div><span>03</span><b>AI Workflows</b><small>Как AI помогает учителю, а не заменяет его</small></div>
+            <div><span>04</span><b>Business Direction</b><small>Школы, партнёры и масштабирование</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="builder section-dark" id="builder">
+      <div class="section-kicker light">04 / BUILDER MAP</div>
+      <div class="builder-layout reveal">
+        <div class="builder-copy">
+          <small>WHAT BUILDS MENTORA</small>
+          <h2>Четыре направления.<br>Одно ядро.</h2>
+          <div class="builder-detail" id="builderDetail"><span>01</span><div><small>EDUCATION</small><b>Реальные задачи учителя.</b><p>Сценарии урока, практика, тесты, ДЗ и понятная логика обучения.</p></div></div>
+        </div>
+        <div class="builder-stage" id="builderStage">
+          <div class="builder-ring br-1"></div><div class="builder-ring br-2"></div><div class="builder-ring br-3"></div>
+          <div class="builder-core"><span>M</span><b>MENTORA</b></div>
+          <button class="builder-node bn-1 is-active" type="button" data-builder-node="0"><span>01</span><b>Education</b></button>
+          <button class="builder-node bn-2" type="button" data-builder-node="1"><span>02</span><b>AI Systems</b></button>
+          <button class="builder-node bn-3" type="button" data-builder-node="2"><span>03</span><b>Product</b></button>
+          <button class="builder-node bn-4" type="button" data-builder-node="3"><span>04</span><b>Operations</b></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="dna section-beige" id="dna">
+      <div class="section-kicker">05 / MENTORA DNA</div>
+      <div class="dna-head reveal"><h2>Принципы, на которых строится продукт.</h2></div>
+      <div class="dna-grid reveal">
+        <article><span>01</span><h3>Education first</h3><p>Технология начинается с задачи учителя и ученика.</p></article>
+        <article><span>02</span><h3>AI with purpose</h3><p>AI используется там, где он действительно экономит время и улучшает результат.</p></article>
+        <article><span>03</span><h3>One ecosystem</h3><p>Директор, учитель, ученик и родитель работают внутри одной системы.</p></article>
+        <article><span>04</span><h3>Built to scale</h3><p>Мультиязычность и модульность позволяют продукту расти вместе со школами.</p></article>
+      </div>
+    </section>
+
+    <section class="product section-dark" id="product">
+      <div class="section-kicker light">06 / PRODUCT IN MOTION</div>
+      <div class="product-layout reveal">
+        <div class="product-copy"><small>AI LESSON GENERATION</small><h2>Одна кнопка.<br>Полный урок.</h2><p>Учитель задаёт параметры урока, а Mentora собирает структуру: теорию, практику, тест и домашнее задание.</p></div>
+        <div class="product-device" id="productDevice">
+          <div class="device-top"><span class="device-logo">M</span><b>Mentora</b><small>AI Lesson Builder</small></div>
+          <div class="device-body">
+            <div class="lesson-inputs"><span>Предмет: <b>Mathematics</b></span><span>Класс: <b>7</b></span><span>Тема: <b>Linear equations</b></span></div>
+            <button class="generate-btn" id="generateLesson" type="button">Сгенерировать урок <span>✦</span></button>
+            <div class="generation-status" id="generationStatus">Готово к генерации</div>
+            <div class="lesson-modules" id="lessonModules"><div><i>01</i><b>Теория</b></div><div><i>02</i><b>Практика</b></div><div><i>03</i><b>Тест</b></div><div><i>04</i><b>Домашнее задание</b></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience section-beige" id="experience">
+      <div class="section-kicker">07 / EXPERIENCE</div>
+      <div class="experience-head reveal"><h2>Создать. Провести. Понять результат.</h2><p>Внутри одной логики Mentora соединяет подготовку урока, проведение занятия и аналитику.</p></div>
+      <div class="experience-shell reveal" id="experienceShell">
+        <div class="experience-tabs"><button class="is-active" type="button" data-experience-tab="0">Create</button><button type="button" data-experience-tab="1">Teach</button><button type="button" data-experience-tab="2">Understand</button></div>
+        <div class="experience-stage">
+          <article class="experience-panel is-active" data-experience-panel="0"><div class="xp-card"><small>AI LESSON BUILDER</small><h3>Создание урока</h3><p>Тема → цели → теория → практика → тест → ДЗ.</p></div></article>
+          <article class="experience-panel" data-experience-panel="1"><div class="xp-card"><small>CLASSROOM FLOW</small><h3>Проведение занятия</h3><p>Материалы, задания и контроль прогресса в одном интерфейсе.</p></div></article>
+          <article class="experience-panel" data-experience-panel="2"><div class="xp-card"><small>LEARNING INSIGHTS</small><h3>Результаты</h3><p>Посещаемость, выполнение заданий и динамика класса.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ecosystem section-beige" id="vision">
+      <div class="section-kicker">08 / ECOSYSTEM</div>
+      <div class="ecosystem-header reveal"><h2>Одна система.<br>Четыре стороны образования.</h2><p>Каждая роль получает свой интерфейс и свои инструменты, но всё работает как единая экосистема.</p></div>
+      <div class="ecosystem-stage reveal" id="ecosystemStage">
+        <div class="ecosystem-center"><div class="mini-logo">M</div><span>MENTORA</span></div>
+        <article class="eco-card eco-1"><b>01</b><h3>Директор</h3><p>Школа, учителя, классы, аналитика и контроль.</p></article>
+        <article class="eco-card eco-2"><b>02</b><h3>Учитель</h3><p>Уроки, тесты, ДЗ, презентации и журнал.</p></article>
+        <article class="eco-card eco-3"><b>03</b><h3>Ученик</h3><p>Персональные задания, результаты и прогресс.</p></article>
+        <article class="eco-card eco-4"><b>04</b><h3>Родитель</h3><p>Посещаемость, результаты и прозрачность обучения.</p></article>
+      </div>
+    </section>
+
+    <section class="timeline section-dark" id="journey">
+      <div class="section-kicker light">09 / JOURNEY</div>
+      <div class="timeline-head reveal"><h2>От идеи<br>к образовательной платформе.</h2></div>
+      <div class="timeline-track reveal"><div class="timeline-line"><div class="timeline-progress" id="timelineProgress"></div></div><div class="milestone"><span>01</span><h3>Problem</h3><p>Учитель перегружен рутинной подготовкой и разрозненными сервисами.</p></div><div class="milestone"><span>02</span><h3>Prototype</h3><p>Первая концепция генерации уроков с AI и экспортом материалов.</p></div><div class="milestone"><span>03</span><h3>Platform</h3><p>Классы, роли, домашние задания, журнал и школьная экосистема.</p></div><div class="milestone"><span>04</span><h3>Scale</h3><p>Мультиязычность, B2B-модель и выход на новые школы и рынки.</p></div></div>
+    </section>
+
+    <section class="team section-beige" id="team">
+      <div class="section-kicker">10 / TEAM</div>
+      <div class="team-head reveal"><h2>Люди за Mentora.</h2><p>Мы показываем только подтверждённых участников проекта. Никаких вымышленных должностей или «команды ради красивой страницы».</p></div>
+      <div class="team-showcase">
+        <article class="founder-team-card reveal tilt-card" data-tilt-strength="3"><div class="founder-team-photo"><picture><source media="(max-width: 760px)" srcset="assets/founder-abdusamad-720.webp" type="image/webp"><source srcset="assets/founder-abdusamad-1152.webp" type="image/webp"><img src="assets/founder-abdusamad.jpeg" width="1152" height="1536" loading="lazy" decoding="async" alt="Abdusamad Shatursunov"></picture><div></div></div><div class="founder-team-copy"><div class="member-status"><i></i> CORE TEAM / FOUNDER</div><h3>Abdusamad<br>Shatursunov</h3><p class="founder-team-role">Founder & CEO · Product Creator</p><p>Формирует продуктовую идею Mentora, образовательную логику, пользовательский опыт и направление развития платформы.</p><div class="contribution-grid"><span><small>01</small>Product vision</span><span><small>02</small>Education logic</span><span><small>03</small>AI workflows</span><span><small>04</small>Business direction</span></div></div></article>
+        <aside class="team-system reveal"><div class="team-system-head"><small>TEAM PRINCIPLE</small><span>VERIFIED PEOPLE ONLY</span></div><h3>Команда будет расти.<br>Страница — вместе с ней.</h3><p>Когда в Mentora появляется новый подтверждённый участник, мы добавляем его имя, фотографию, роль и реальный вклад в продукт.</p><div class="discipline-list"><div><span>ENGINEERING</span><i>Product infrastructure</i><b>→</b></div><div><span>DESIGN</span><i>Experience & interface</i><b>→</b></div><div><span>METHODOLOGY</span><i>Learning quality</i><b>→</b></div><div><span>GROWTH</span><i>Schools & partnerships</i><b>→</b></div></div><small class="discipline-note">Направления развития, а не вымышленные сотрудники.</small></aside>
+      </div>
+      <div class="team-constellation reveal" id="teamConstellation"><div class="team-constellation-copy"><small>TEAM ARCHITECTURE / LIVE MAP</small><h3>Команда строится вокруг продукта,<br>а не вокруг громких должностей.</h3><p>Сейчас ядро Mentora — основатель и продукт. По мере роста к ядру подключаются конкретные компетенции.</p><div class="team-constellation-detail" id="teamConstellationDetail" aria-live="polite"><span id="teamDetailIndex">01</span><div><small id="teamDetailLabel">ENGINEERING</small><b id="teamDetailTitle">Надёжная инфраструктура продукта.</b><p id="teamDetailText">Архитектура, интеграции, производительность и устойчивость платформы.</p></div></div></div><div class="team-orbit-stage" id="teamOrbitStage" aria-label="Интерактивная карта компетенций Mentora"><div class="team-orbit-grid" aria-hidden="true"></div><div class="team-orbit-ring tor-1" aria-hidden="true"></div><div class="team-orbit-ring tor-2" aria-hidden="true"></div><div class="team-orbit-ring tor-3" aria-hidden="true"></div><div class="team-core" aria-hidden="true"><span>M</span><small>FOUNDER-LED</small><b>MENTORA</b></div><button class="team-orbit-node ton-1 is-active" type="button" data-team-node="0"><small>01</small><b>Engineering</b><span>Infrastructure</span></button><button class="team-orbit-node ton-2" type="button" data-team-node="1"><small>02</small><b>Design</b><span>Experience</span></button><button class="team-orbit-node ton-3" type="button" data-team-node="2"><small>03</small><b>Methodology</b><span>Learning quality</span></button><button class="team-orbit-node ton-4" type="button" data-team-node="3"><small>04</small><b>Growth</b><span>Schools & partners</span></button><div class="team-orbit-caption" aria-hidden="true">CAPABILITY MAP / NOT A STAFF LIST</div></div></div>
+    </section>
+
+    <section class="manifesto section-dark"><div class="manifesto-orb" aria-hidden="true"></div><div class="manifesto-ring ring-one" aria-hidden="true"></div><div class="manifesto-ring ring-two" aria-hidden="true"></div><div class="manifesto-content reveal"><div class="section-kicker light">11 / MISSION</div><p>Наша миссия</p><h2>Сделать современные образовательные технологии доступными <em>каждому учителю и каждой школе — без лишней сложности.</em></h2></div></section>
+
+    <section class="contact section-beige" id="contact"><div class="contact-head reveal"><div class="section-kicker">12 / NEXT CHAPTER</div><h2>Built in Uzbekistan.<br><em>Designed to scale.</em></h2><p>Mentora развивается как продукт для реальной образовательной среды — от одного учителя до целой школы и новых рынков.</p></div><div class="contact-grid"><article class="contact-lane reveal"><small>FOR SCHOOLS</small><b>Подключение школы</b><p>Единая система для директора, учителей, учеников и родителей.</p><span>01</span></article><article class="contact-lane reveal"><small>FOR PARTNERS</small><b>Партнёрства</b><p>Пилоты, интеграции и совместное развитие образовательных сценариев.</p><span>02</span></article><article class="contact-lane reveal"><small>FOR PRODUCT</small><b>Следующий этап</b><p>Рост команды, новые функции, новые языки и масштабирование платформы.</p><span>03</span></article></div><div class="contact-domain reveal"><div><small>OFFICIAL PRODUCT</small><strong>mentoraedu.uz</strong></div><div class="contact-actions"><a class="btn btn-dark magnetic" href="https://mentoraedu.uz" target="_blank" rel="noreferrer">Открыть Mentora <span>↗</span></a><button class="btn btn-outline-dark magnetic copy-product-link" type="button" data-copy-label="Скопировать ссылку" data-copied-label="Ссылка скопирована"><span class="copy-label">Скопировать ссылку</span> <span>⧉</span></button></div></div></section>
+    <div class="v12-site-signature" aria-hidden="true"><span>MENTORA</span><i></i><b>TEAM & STORY / 2026</b></div>
+  </main>
+
+  <div class="site-toast" id="siteToast" role="status" aria-live="polite"></div>
+  <footer><div class="brand"><span class="brand-mark">M</span><span>Mentora</span></div><div>© 2026 Mentora. Education × AI. <span class="version-tag">SITE V15</span></div><a href="#top">Наверх ↑</a></footer>
+  <script src="app.js?v=15" defer></script>
+</body>
+</html>
