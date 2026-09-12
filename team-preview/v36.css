@@ -1,0 +1,33 @@
+/* V36 — render-budget and mobile performance polish. */
+@supports (content-visibility: auto) {
+  main > section:not(.hero) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
+  }
+}
+
+/* Keep anchor destinations accurate when the fixed header is present. */
+main > section[id] { scroll-margin-top: clamp(72px, 9vw, 104px); }
+
+/* Avoid expensive visual work on coarse-pointer/mobile devices while preserving the design language. */
+@media (max-width: 760px), (pointer: coarse) {
+  .cursor-glow { display: none !important; }
+  .floating-panel,
+  .founder-photo-overlay,
+  .mobile-menu,
+  .topbar {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+  .hero-blur { filter: blur(54px) !important; opacity: .7; }
+}
+
+/* Data-saving users get a calm static presentation without losing content. */
+@media (prefers-reduced-data: reduce) {
+  .hero-ribbons,
+  .hero-corridor,
+  .floating-panel,
+  .cursor-glow { display: none !important; }
+  .hero-blur { filter: none !important; opacity: .25; }
+  * { scroll-behavior: auto !important; }
+}
