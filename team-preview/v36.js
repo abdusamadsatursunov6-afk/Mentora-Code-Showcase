@@ -16,17 +16,22 @@
   const constrained = Boolean(connection && (connection.saveData || /(^|-)2g$/.test(connection.effectiveType || '')));
   if (constrained) root.dataset.networkMode = 'constrained';
 
-  // Pause decorative canvas work when the page is hidden or the user explicitly saves data.
+  // Hidden tabs are browser-throttled; on data-saving/2G connections also collapse the decorative canvas render budget.
   const canvas = document.getElementById('heroCanvas');
   const setCanvasState = () => {
     if (!canvas) return;
     const paused = document.hidden || constrained;
     canvas.dataset.paused = paused ? 'true' : 'false';
     canvas.style.visibility = constrained ? 'hidden' : '';
+    if (constrained) {
+      if (canvas.width !== 1) canvas.width = 1;
+      if (canvas.height !== 1) canvas.height = 1;
+    }
     window.dispatchEvent(new CustomEvent('mentora:renderbudget', { detail: { paused, constrained } }));
   };
   document.addEventListener('visibilitychange', setCanvasState, { passive: true });
   window.addEventListener('pageshow', setCanvasState, { passive: true });
+  if (constrained) window.addEventListener('resize', setCanvasState, { passive: true });
   setCanvasState();
 
   // Let the browser schedule non-critical below-fold reveal preparation during idle time.
