@@ -1,0 +1,22 @@
+/* V28 — compositor budget and mobile viewport stability. */
+.v28-page-paused .cube,
+.v28-page-paused .orbit,
+.v28-page-paused .builder-prism,
+.v28-page-paused .origin-orbit,
+.v28-page-paused .manifesto-ring,
+.v28-page-paused .marquee-track,
+.v28-offscreen .cube,
+.v28-offscreen .orbit,
+.v28-offscreen .builder-prism,
+.v28-offscreen .origin-orbit,
+.v28-offscreen .manifesto-ring,
+.v28-offscreen .marquee-track {
+  animation-play-state: paused !important;
+}
+@media (max-width:760px) {
+  .hero, .hero-inner { min-height:100svh; }
+}
+@supports (height:100dvh) {
+  @media (max-width:760px) { .hero, .hero-inner { min-height:100dvh; } }
+}
+#heroCanvas { touch-action:pan-y; }
