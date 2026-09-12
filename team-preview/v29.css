@@ -1,0 +1,9 @@
+/* V29 — share action polish + fallback metric stability. */
+.contact-actions { flex-wrap: wrap; }
+.share-product-link { min-width: 148px; }
+.share-product-link .share-label { white-space: nowrap; }
+html { text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+body { font-synthesis: none; }
+@media (max-width: 560px) {
+  .contact-actions > .btn { flex: 1 1 100%; justify-content: space-between; }
+}
