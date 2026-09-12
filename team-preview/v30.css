@@ -1,0 +1,25 @@
+/* V30 — deep-link navigation polish without adding visual noise. */
+[id="story"], [id="origin"], [id="founder"], [id="builder"], [id="dna"], [id="product"], [id="experience"], [id="vision"], [id="journey"], [id="team"], [id="contact"] {
+  scroll-margin-top: clamp(74px, 9vh, 112px);
+}
+
+.chapter-rail a[aria-current="location"] b,
+.nav a[aria-current="location"] {
+  text-decoration-thickness: .08em;
+  text-underline-offset: .28em;
+}
+
+.chapter-rail a[aria-current="location"] {
+  opacity: 1;
+}
+
+.share-product-link:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [id="story"], [id="origin"], [id="founder"], [id="builder"], [id="dna"], [id="product"], [id="experience"], [id="vision"], [id="journey"], [id="team"], [id="contact"] {
+    scroll-behavior: auto;
+  }
+}
