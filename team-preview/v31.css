@@ -1,0 +1,20 @@
+/* V31 — multilingual runtime hardening. */
+html[lang="en"] .lang-link[hreflang="en"],
+html[lang="uz"] .lang-link[hreflang="uz"],
+html[lang="ru"] .lang-link[hreflang="ru"],
+html[lang="en"] .lang-switcher a[hreflang="en"],
+html[lang="uz"] .lang-switcher a[hreflang="uz"],
+html[lang="ru"] .lang-switcher a[hreflang="ru"],
+html[lang="en"] .mobile-lang-switcher a[hreflang="en"],
+html[lang="uz"] .mobile-lang-switcher a[hreflang="uz"],
+html[lang="ru"] .mobile-lang-switcher a[hreflang="ru"] {
+  text-decoration-thickness: 2px;
+  text-underline-offset: .22em;
+}
+
+@media (max-width: 520px) {
+  .lang-switcher,
+  .mobile-lang-switcher {
+    touch-action: manipulation;
+  }
+}
