@@ -1,0 +1,6 @@
+/* Mentora Team & Story V24 — production performance pass */
+html[data-v24="ready"] .page-loader{transition-duration:.22s!important}
+@media (pointer:coarse){.cursor-glow{display:none!important}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.page-loader{display:none!important}.hero-ribbons,.hero-blur,.noise{animation:none!important}}
+@supports (content-visibility:auto){.origin,.founder,.builder,.principles,.product,.experience,.ecosystem,.journey,.team,.closing,.manifesto,.contact{content-visibility:auto;contain-intrinsic-size:auto 920px}.product,.experience{contain-intrinsic-size:auto 1100px}}
+html[data-save-data="true"] .noise,html[data-save-data="true"] .cursor-glow,html[data-save-data="true"] .hero-ribbons,html[data-save-data="true"] .hero-blur{display:none!important}
