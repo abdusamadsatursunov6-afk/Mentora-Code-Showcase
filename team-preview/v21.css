@@ -1,0 +1,13 @@
+/* Mentora Team & Story V21 — production accessibility/performance pass */
+@supports (content-visibility:auto){
+  .statement,.interlude,.origin,.founder,.principles,.product,.experience,.ecosystem,.journey,.team,.closing{content-visibility:auto;contain-intrinsic-size:auto 900px}
+  .product,.experience{contain-intrinsic-size:auto 1100px}
+}
+.mobile-menu[aria-hidden="true"]{pointer-events:none}
+.mobile-menu[aria-hidden="false"]{pointer-events:auto}
+.product-mode-bar [role="tab"]{touch-action:manipulation;min-height:44px}
+.product-mode-bar [role="tab"][aria-selected="true"]{border-color:rgba(216,194,158,.48)}
+.product-stage[role="tabpanel"]:focus-visible{outline:2px solid rgba(216,194,158,.86);outline-offset:5px}
+.dashboard-shell,.experience-device{will-change:auto}
+@media (hover:hover) and (pointer:fine){.product-stage:hover .dashboard-shell{will-change:transform}}
+@media (prefers-reduced-motion:reduce){.product-stage:hover .dashboard-shell{will-change:auto}}
