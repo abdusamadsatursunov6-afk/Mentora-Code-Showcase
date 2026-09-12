@@ -1,0 +1,7 @@
+/* V27 — fast-start rendering + mobile GPU budget */
+.page-loader{display:none!important}
+.hero-content.reveal{opacity:1!important;transform:none!important}
+@media(max-width:760px){#heroCanvas{opacity:.24!important;filter:none!important}.hero-corridor,.hero-ribbons,.hero-blur{display:none!important}}
+html[data-v27-lite="true"] #heroCanvas,html[data-v27-lite="true"] .cursor-glow,html[data-v27-lite="true"] .noise,html[data-v27-lite="true"] .hero-corridor,html[data-v27-lite="true"] .hero-ribbons,html[data-v27-lite="true"] .hero-blur,html[data-v27-lite="true"] .manifesto-orb{display:none!important}
+html[data-v27-lite="true"] .hero-object,html[data-v27-lite="true"] .dashboard-shell,html[data-v27-lite="true"] .closing-visual{filter:none!important;will-change:auto!important}
+@media(prefers-reduced-motion:reduce){#heroCanvas{display:none!important}.hero-content.reveal{transition:none!important}}
