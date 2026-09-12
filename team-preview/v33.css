@@ -1,0 +1,78 @@
+/* V33 — accessible mobile navigation + interaction hardening. */
+html[data-menu-open="true"],
+html[data-menu-open="true"] body {
+  overflow: hidden !important;
+  overscroll-behavior: none;
+}
+
+#mobileMenu[aria-hidden="false"] {
+  visibility: visible;
+}
+
+#mobileMenu[aria-hidden="true"] {
+  pointer-events: none;
+}
+
+#mobileMenu a,
+#mobileMenu button,
+.menu-toggle,
+.lang-switcher a,
+.mobile-lang-switcher a {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+@media (max-width: 760px) {
+  .menu-toggle {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  #mobileMenu .mobile-menu-inner > a,
+  #mobileMenu .mobile-lang-switcher a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  #mobileMenu {
+    overscroll-behavior: contain;
+  }
+
+  #mobileMenu .mobile-menu-inner {
+    max-height: 100dvh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: max(28px, env(safe-area-inset-bottom));
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .magnetic,
+  .tilt-card {
+    transform: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #mobileMenu,
+  #mobileMenu *,
+  .menu-toggle,
+  .menu-toggle * {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* Visible focus that works on both dark and beige surfaces. */
+:where(a,button,[role="button"],[tabindex]):focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 4px;
+}
+
+.section-dark :where(a,button,[role="button"],[tabindex]):focus-visible,
+#mobileMenu :where(a,button,[role="button"],[tabindex]):focus-visible {
+  outline-color: #f0e6d6;
+}
