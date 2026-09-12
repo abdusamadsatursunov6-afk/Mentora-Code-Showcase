@@ -1,0 +1,4 @@
+/* V32 — resilient fallback state if an optional enhancement layer fails. */
+html[data-runtime-health="degraded"] .reveal{opacity:1!important;transform:none!important;filter:none!important}
+html[data-runtime-health="degraded"] .page-loader{display:none!important}
+@media (prefers-reduced-motion:reduce){html[data-runtime-health] .reveal{transition:none!important}}
