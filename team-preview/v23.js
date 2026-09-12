@@ -1,6 +1,7 @@
 // ======================== V23 / resilience + long-form navigation ========================
 (() => {
   const labels={ru:'Наверх',en:'Back to top',uz:'Yuqoriga'};
+  document.querySelectorAll('.lang-switcher a,.mobile-lang-switcher a').forEach(a=>a.target='_top');
   let backToTop = document.getElementById('backToTop');
   if (!backToTop) {
     backToTop=document.createElement('a');
