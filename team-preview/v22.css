@@ -1,0 +1,6 @@
+/* ======================== V22 / shareability + repeat-visit performance ======================== */
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+html[data-return-visit="true"] .page-loader{display:none!important}
+.copy-product-link{touch-action:manipulation}
+.copy-product-link.is-success{border-color:rgba(216,194,158,.62)}
+@media(max-width:760px){.copy-product-link{min-height:50px}}
