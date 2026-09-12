@@ -1,0 +1,17 @@
+/* V25 — adaptive delivery + claim-safe public polish */
+html[data-v25="true"] .hero-stage-label b{font-size:0}
+html[data-v25="true"] .hero-stage-label b::after{content:"MENTORA / SYSTEM";font-size:8px}
+html[data-v25="true"] .metric-row .metric:nth-child(3)>span{font-size:0}
+html[data-v25="true"] .metric-row .metric:nth-child(3)>span::after{content:"MULTI";font-size:clamp(32px,4vw,58px);letter-spacing:-.05em}
+html[data-v25="true"][lang^="ru"] .metric-row .metric:nth-child(3)>small{font-size:0}
+html[data-v25="true"][lang^="ru"] .metric-row .metric:nth-child(3)>small::after{content:"мультиязычный интерфейс";font-size:8px}
+html[data-v25="true"][lang^="en"] .metric-row .metric:nth-child(3)>small{font-size:0}
+html[data-v25="true"][lang^="en"] .metric-row .metric:nth-child(3)>small::after{content:"multilingual interface";font-size:8px}
+html[data-v25="true"][lang^="uz"] .metric-row .metric:nth-child(3)>small{font-size:0}
+html[data-v25="true"][lang^="uz"] .metric-row .metric:nth-child(3)>small::after{content:"ko‘p tilli interfeys";font-size:8px}
+html[data-v25="true"] .product-float.pf-two span{font-size:0}
+html[data-v25="true"] .product-float.pf-two span::after{content:"RU · UZ · EN";font-size:8px}
+html[data-lite-fx="true"] .noise,html[data-lite-fx="true"] .cursor-glow,html[data-lite-fx="true"] .hero-ribbons,html[data-lite-fx="true"] .hero-corridor,html[data-lite-fx="true"] .hero-blur,html[data-lite-fx="true"] .manifesto-orb,html[data-lite-fx="true"] .manifesto-ring{display:none!important}
+html[data-lite-fx="true"] .hero-object,html[data-lite-fx="true"] .dashboard-shell,html[data-lite-fx="true"] .closing-visual{transform:none!important;filter:none!important;will-change:auto!important}
+html[data-lite-fx="true"] *{scroll-behavior:auto!important}
+@media (prefers-contrast:more){.btn,.nav-cta,.product-mode-bar button,.back-to-top{border-color:currentColor!important}.hero-copy,.product-head p,.founder-copy p,.experience-intro p{color:inherit!important}:focus-visible{outline-width:3px!important;outline-offset:4px!important}}
