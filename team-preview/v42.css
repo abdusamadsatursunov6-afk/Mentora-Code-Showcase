@@ -1,0 +1,104 @@
+/* V42 — mobile resilience, touch ergonomics and low-noise accessibility polish. */
+html, body { max-width: 100%; }
+body { overflow-x: clip; }
+
+/* Keep all primary controls comfortably tappable without changing the visual language. */
+.nav a,
+.lang-switcher a,
+.mobile-lang-switcher a,
+.nav-cta,
+.menu-toggle,
+.btn {
+  min-height: 44px;
+}
+
+/* Strong, consistent keyboard focus across the public presentation. */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 4px;
+}
+
+/* Current chapter is exposed visually as well as semantically by V42 JS. */
+.chapter-rail a[aria-current="location"] b,
+.nav a[aria-current="location"] {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: .32em;
+}
+
+@media (max-width: 760px) {
+  .hero-content h1 {
+    font-size: clamp(2.45rem, 12vw, 4.5rem) !important;
+    line-height: .94 !important;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-copy,
+  .story-copy,
+  .founder-copy,
+  .origin-copy {
+    max-width: 100% !important;
+  }
+
+  .hero-actions {
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .status-pill {
+    display: none !important;
+  }
+
+  .mobile-menu-inner {
+    padding-bottom: max(28px, env(safe-area-inset-bottom));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .mobile-menu-inner > a,
+  .mobile-lang-switcher a {
+    min-height: 48px;
+  }
+
+  .mobile-chapter-dock {
+    bottom: max(12px, env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 380px) {
+  .topbar {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .brand > span:last-child {
+    font-size: .95rem;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2.2rem, 11.5vw, 3.45rem) !important;
+  }
+
+  .hero-meta {
+    grid-template-columns: 1fr !important;
+  }
+
+  .story-stats {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chapter-rail a,
+  .nav a,
+  .btn,
+  .mobile-menu-inner > a {
+    transition: none !important;
+  }
+}
