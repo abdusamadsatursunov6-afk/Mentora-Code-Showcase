@@ -1,14 +1,24 @@
-/* V47 — production-safe language routing and verified locale presentation. */
+/* V51 — version-safe language routing and verified locale presentation. */
 (()=>{'use strict';
 const d=document;
 const supported=new Set(['ru','uz','en']);
 const current=((d.documentElement.lang||'ru').toLowerCase().split('-')[0]);
-const shellPath='v47.html';
+const fallbackShell='v51.html';
 const languageCaption={ru:'языка публичной версии',uz:'ommaviy versiya tillari',en:'public version languages'};
+const languageName={ru:{ru:'Русский',uz:'O‘zbekcha',en:'English'},uz:{ru:'Ruscha',uz:'O‘zbekcha',en:'Inglizcha'},en:{ru:'Russian',uz:'Uzbek',en:'English'}};
+const getShellPath=()=>{
+  try{
+    if(window.parent&&window.parent!==window){
+      const name=(window.parent.location.pathname||'').split('/').pop()||'';
+      if(/^v\d+\.html$/i.test(name))return name;
+    }
+  }catch(_){}
+  return fallbackShell;
+};
 const getShellHash=()=>{
   try{return window.parent&&window.parent!==window?(window.parent.location.hash||location.hash||''):(location.hash||'')}catch(_){return location.hash||''}
 };
-const buildHref=code=>`${shellPath}${code==='ru'?'':`?lang=${code}`}${getShellHash()}`;
+const buildHref=code=>`${getShellPath()}${code==='ru'?'':`?lang=${code}`}${getShellHash()}`;
 const links=[...d.querySelectorAll('.lang-switcher a,.mobile-lang-switcher a')];
 links.forEach(link=>{
   const raw=(link.textContent||'').trim().toLowerCase();
@@ -16,8 +26,11 @@ links.forEach(link=>{
   if(!supported.has(code))return;
   link.href=buildHref(code);
   link.target='_top';
-  link.rel='nofollow';
+  link.removeAttribute('rel');
+  link.hreflang=code;
+  link.lang=code;
   link.dataset.mentoraLang=code;
+  link.setAttribute('aria-label',languageName[current]?.[code]||code.toUpperCase());
   link.addEventListener('click',()=>{link.href=buildHref(code)});
   if(code===current)link.setAttribute('aria-current','page');
   else link.removeAttribute('aria-current');
@@ -38,5 +51,6 @@ const refresh=()=>links.forEach(link=>{
 });
 window.addEventListener('hashchange',refresh,{passive:true});
 window.addEventListener('mentora:chapterchange',refresh);
+window.addEventListener('pageshow',refresh,{passive:true});
 refresh();
 })();
