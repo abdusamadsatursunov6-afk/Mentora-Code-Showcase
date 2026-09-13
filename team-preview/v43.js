@@ -3,20 +3,18 @@
 const d=document;
 const w=window;
 const supported=['ru','uz','en'];
-const queryLang=new URLSearchParams(w.parent===w?location.search:w.parent.location.search).get('lang');
-const lang=supported.includes(queryLang)?queryLang:'ru';
+const declared=(d.documentElement.lang||'ru').toLowerCase().split('-')[0];
+const lang=supported.includes(declared)?declared:'ru';
 const labels={
   ru:{nav:'Текущий раздел',langs:{ru:'Русский язык',uz:'Узбекский язык',en:'Английский язык'}},
   uz:{nav:'Joriy bo‘lim',langs:{ru:'Rus tili',uz:'O‘zbek tili',en:'Ingliz tili'}},
   en:{nav:'Current section',langs:{ru:'Russian',uz:'Uzbek',en:'English'}}
 };
 
-/* Anchor targets should not hide beneath the sticky header. */
 d.querySelectorAll('main > section[id], #top, #contact').forEach(node=>{
   node.style.scrollMarginTop='96px';
 });
 
-/* Make language controls explicit to assistive technology and keep the current language obvious. */
 const languageLinks=[...d.querySelectorAll('.lang-switcher a, .mobile-lang-switcher a')];
 languageLinks.forEach(link=>{
   const text=(link.textContent||'').trim().toLowerCase();
@@ -28,7 +26,6 @@ languageLinks.forEach(link=>{
   else link.removeAttribute('aria-current');
 });
 
-/* Announce chapter changes without adding visible UI noise. */
 let live=d.getElementById('v43SectionStatus');
 if(!live){
   live=d.createElement('div');
@@ -49,13 +46,11 @@ const announce=id=>{
 
 const normalizeHash=()=>{
   const id=(location.hash||'#story').slice(1);
-  const target=d.getElementById(id);
-  if(target) announce(id);
+  if(d.getElementById(id)) announce(id);
 };
 w.addEventListener('hashchange',normalizeHash,{passive:true});
 normalizeHash();
 
-/* BFCache restores can leave observers/menu state stale in mobile Safari and Chromium. */
 w.addEventListener('pageshow',event=>{
   if(!event.persisted)return;
   const menu=d.getElementById('mobileMenu');
@@ -68,7 +63,6 @@ w.addEventListener('pageshow',event=>{
   requestAnimationFrame(normalizeHash);
 },{passive:true});
 
-/* Prevent accidental horizontal viewport drift after orientation changes. */
 w.addEventListener('orientationchange',()=>requestAnimationFrame(()=>{
   d.documentElement.scrollLeft=0;
   d.body.scrollLeft=0;
