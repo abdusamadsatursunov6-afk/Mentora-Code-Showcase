@@ -1,9 +1,9 @@
-/* V56 — version-safe language routing, canonical integrity, and verified locale presentation. */
+/* V63 — version-safe language routing with top-level navigation, canonical integrity, and verified locale presentation. */
 (()=>{'use strict';
 const d=document;
 const supported=new Set(['ru','uz','en']);
 const current=((d.documentElement.lang||'ru').toLowerCase().split('-')[0]);
-const fallbackShell='v56.html';
+const fallbackShell='v63.html';
 const languageCaption={ru:'языка публичной версии',uz:'ommaviy versiya tillari',en:'public version languages'};
 const languageName={ru:{ru:'Русский',uz:'O‘zbekcha',en:'English'},uz:{ru:'Ruscha',uz:'O‘zbekcha',en:'Inglizcha'},en:{ru:'Russian',uz:'Uzbek',en:'English'}};
 const getShellPath=()=>{
@@ -19,6 +19,16 @@ const getShellHash=()=>{
   try{return window.parent&&window.parent!==window?(window.parent.location.hash||location.hash||''):(location.hash||'')}catch(_){return location.hash||''}
 };
 const buildHref=code=>`${getShellPath()}${code==='ru'?'':`?lang=${code}`}${getShellHash()}`;
+const navigateTop=(event,code)=>{
+  const href=buildHref(code);
+  try{
+    if(window.parent&&window.parent!==window){
+      event.preventDefault();
+      window.parent.location.assign(href);
+      return;
+    }
+  }catch(_){}
+};
 const syncOuterVersionMeta=()=>{
   try{
     if(!window.parent||window.parent===window)return;
@@ -34,7 +44,8 @@ const syncOuterVersionMeta=()=>{
     pd.querySelectorAll('link[rel="alternate"][hreflang]').forEach(link=>{
       const code=link.getAttribute('hreflang');
       const base=`${p.location.origin}${p.location.pathname}`;
-      link.href=code==='uz'?`${base}?lang=uz`:code==='en'?`${base}?lang=en`:base;
+      const next=code==='uz'?`${base}?lang=uz`:code==='en'?`${base}?lang=en`:base;
+      if(link.href!==next)link.href=next;
     });
   }catch(_){}
 };
@@ -43,14 +54,15 @@ links.forEach(link=>{
   const raw=(link.textContent||'').trim().toLowerCase();
   const code=raw==='uz'?'uz':raw==='en'?'en':'ru';
   if(!supported.has(code))return;
-  link.href=buildHref(code);
-  link.target='_top';
+  const href=buildHref(code);
+  if(link.getAttribute('href')!==href)link.setAttribute('href',href);
+  link.removeAttribute('target');
   link.removeAttribute('rel');
   link.hreflang=code;
   link.lang=code;
   link.dataset.mentoraLang=code;
   link.setAttribute('aria-label',languageName[current]?.[code]||code.toUpperCase());
-  link.addEventListener('click',()=>{link.href=buildHref(code);link.target='_top'});
+  link.addEventListener('click',event=>navigateTop(event,code));
   if(code===current)link.setAttribute('aria-current','page');
   else link.removeAttribute('aria-current');
 });
@@ -65,7 +77,10 @@ if(stats[1]){
 const refresh=()=>{
   links.forEach(link=>{
     const code=link.dataset.mentoraLang;
-    if(code){link.href=buildHref(code);link.target='_top'}
+    if(code){
+      const href=buildHref(code);
+      if(link.getAttribute('href')!==href)link.setAttribute('href',href);
+    }
   });
   syncOuterVersionMeta();
 };
