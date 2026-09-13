@@ -1,0 +1,68 @@
+name: Mentora V61 Build
+
+on:
+  push:
+    branches: [mentora-team-v61]
+    paths: ['.github/workflows/mentora-v61-build.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  build-v61:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: mentora-team-v61
+      - name: Build V61 from V60
+        shell: python
+        run: |
+          from pathlib import Path
+          p = Path('team-preview/v60.html')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('mentora-team-v60/team-preview/v60.html', 'mentora-team-v61/team-preview/v61.html')
+          s = s.replace("const VERSION='60',ASSET_TIMEOUT=8000,INDEX_TIMEOUT=9000,BOOT_TIMEOUT=18000,MAX_CONCURRENT=6,CACHE_NAME='mentora-team-story-v60',CACHE_PREFIX='mentora-team-story-v',LANG_KEY='mentora-team-language';", "const VERSION='61',CACHE_NAME='mentora-team-story-v61',CACHE_PREFIX='mentora-team-story-v',LANG_KEY='mentora-team-language';\nconst connection=navigator.connection||navigator.mozConnection||navigator.webkitConnection||null;\nconst effectiveType=String(connection?.effectiveType||'').toLowerCase();\nconst constrained=Boolean(connection?.saveData)||effectiveType==='slow-2g'||effectiveType==='2g';\nconst medium=effectiveType==='3g';\nconst ASSET_CONCURRENCY=constrained?2:medium?4:6;\nconst ASSET_TIMEOUT=constrained?14000:medium?11000:8000;\nconst INDEX_TIMEOUT=constrained?16000:medium?12000:9000;\nconst BOOT_TIMEOUT=constrained?30000:medium?24000:18000;")
+          s = s.replace('v60.html${target', 'v61.html${target')
+          s = s.replace('MAX_CONCURRENT', 'ASSET_CONCURRENCY')
+          s = s.replace('mentora-v60-bundle-css', 'mentora-v61-bundle-css')
+          s = s.replace('Mentora V60', 'Mentora V61')
+          s = s.replace('direct-srcdoc-concurrency-${ASSET_CONCURRENCY}', 'direct-srcdoc-adaptive-concurrency-${ASSET_CONCURRENCY}')
+          s = s.replace("d.documentElement.dataset.assetSource='persistent-cache-fallback';", "d.documentElement.dataset.networkProfile=constrained?'constrained':medium?'medium':'standard';if(usedPersistentCache)d.documentElement.dataset.assetSource='persistent-cache-fallback';")
+          s = s.replace("window.__MENTORA_TEAM_DIAGNOSTICS__={version:VERSION,lang,architecture:'direct-srcdoc',assetConcurrency:ASSET_CONCURRENCY,bootTimeout:BOOT_TIMEOUT,mutationPatching:'raf-batched',languagePreference:'explicit-choice-localStorage',get ready(){return ready},get online(){return navigator.onLine}};", "window.__MENTORA_TEAM_DIAGNOSTICS__={version:VERSION,lang,architecture:'direct-srcdoc',assetConcurrency:ASSET_CONCURRENCY,assetTimeout:ASSET_TIMEOUT,indexTimeout:INDEX_TIMEOUT,bootTimeout:BOOT_TIMEOUT,networkProfile:constrained?'constrained':medium?'medium':'standard',saveData:Boolean(connection?.saveData),effectiveType:effectiveType||'unknown',mutationPatching:'raf-batched',languagePreference:'explicit-choice-localStorage',get ready(){return ready},get online(){return navigator.onLine}};")
+          assert "VERSION='61'" in s
+          assert 'MAX_CONCURRENT' not in s
+          assert 'mentora-team-v60/team-preview/v60.html' not in s
+          assert 'v60.html${target' not in s
+          Path('team-preview/v61.html').write_text(s, encoding='utf-8')
+          m = Path('team-preview/manifest.webmanifest')
+          ms = m.read_text(encoding='utf-8').replace('./v60.html','./v61.html')
+          m.write_text(ms, encoding='utf-8')
+      - name: Validate inline JavaScript and local resources
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          s=Path('team-preview/v61.html').read_text(encoding='utf-8')
+          blocks=re.findall(r'<script>(.*?)</script>',s,re.S)
+          assert blocks, 'inline script missing'
+          Path('/tmp/v61-inline.js').write_text(blocks[-1],encoding='utf-8')
+          files=re.findall(r"'(v\d+(?:-i18n-(?:en|uz))?\.(?:css|js))'",blocks[-1])
+          missing=[f for f in files if not Path('team-preview',f).exists()]
+          assert not missing, f'missing resources: {missing}'
+          for f in ['team-preview/index.html','team-preview/assets/favicon.svg','team-preview/assets/founder.webp','team-preview/manifest.webmanifest']:
+              assert Path(f).exists(), f'missing {f}'
+          assert '"start_url": "./v61.html"' in Path('team-preview/manifest.webmanifest').read_text(encoding='utf-8')
+          print('resources-ok')
+          PY
+          node --check /tmp/v61-inline.js
+      - name: Commit verified V61
+        shell: bash
+        run: |
+          rm .github/workflows/mentora-v61-build.yml
+          git config user.name 'Mentora Build Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add team-preview/v61.html team-preview/manifest.webmanifest .github/workflows/mentora-v61-build.yml
+          git commit -m 'feat(team): add adaptive network loading in v61'
+          git push origin HEAD:mentora-team-v61
