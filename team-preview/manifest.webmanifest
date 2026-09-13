@@ -1,9 +1,9 @@
 {
-  "id": "./v62.html",
+  "id": "./v63.html",
   "name": "Mentora — Team & Story",
   "short_name": "Mentora",
   "description": "Mentora team, product and story.",
-  "start_url": "./v62.html",
+  "start_url": "./v63.html",
   "scope": "./",
   "display": "standalone",
   "display_override": ["standalone", "minimal-ui"],
