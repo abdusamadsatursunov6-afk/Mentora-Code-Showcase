@@ -1,9 +1,10 @@
-/* V46 — production-safe language routing, preserving chapter state. */
+/* V47 — production-safe language routing and verified locale presentation. */
 (()=>{'use strict';
 const d=document;
 const supported=new Set(['ru','uz','en']);
 const current=((d.documentElement.lang||'ru').toLowerCase().split('-')[0]);
-const shellPath='v46.html';
+const shellPath='v47.html';
+const languageCaption={ru:'языка публичной версии',uz:'ommaviy versiya tillari',en:'public version languages'};
 const getShellHash=()=>{
   try{return window.parent&&window.parent!==window?(window.parent.location.hash||location.hash||''):(location.hash||'')}catch(_){return location.hash||''}
 };
@@ -22,7 +23,15 @@ links.forEach(link=>{
   else link.removeAttribute('aria-current');
 });
 
-// Keep language URLs correct when the active chapter changes.
+const stats=[...d.querySelectorAll('.story-stats > div')];
+if(stats[1]){
+  const value=stats[1].querySelector('b');
+  const caption=stats[1].querySelector('span');
+  if(value)value.textContent='3';
+  if(caption)caption.textContent=languageCaption[current]||languageCaption.ru;
+  stats[1].setAttribute('aria-label',`RU, UZ, EN — ${languageCaption[current]||languageCaption.ru}`);
+}
+
 const refresh=()=>links.forEach(link=>{
   const code=link.dataset.mentoraLang;
   if(code)link.href=buildHref(code);
