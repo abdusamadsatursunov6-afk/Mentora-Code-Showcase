@@ -1,9 +1,9 @@
-/* V51 — version-safe language routing, canonical integrity, and verified locale presentation. */
+/* V56 — version-safe language routing, canonical integrity, and verified locale presentation. */
 (()=>{'use strict';
 const d=document;
 const supported=new Set(['ru','uz','en']);
 const current=((d.documentElement.lang||'ru').toLowerCase().split('-')[0]);
-const fallbackShell='v51.html';
+const fallbackShell='v56.html';
 const languageCaption={ru:'языка публичной версии',uz:'ommaviy versiya tillari',en:'public version languages'};
 const languageName={ru:{ru:'Русский',uz:'O‘zbekcha',en:'English'},uz:{ru:'Ruscha',uz:'O‘zbekcha',en:'Inglizcha'},en:{ru:'Russian',uz:'Uzbek',en:'English'}};
 const getShellPath=()=>{
@@ -50,11 +50,10 @@ links.forEach(link=>{
   link.lang=code;
   link.dataset.mentoraLang=code;
   link.setAttribute('aria-label',languageName[current]?.[code]||code.toUpperCase());
-  link.addEventListener('click',()=>{link.href=buildHref(code)});
+  link.addEventListener('click',()=>{link.href=buildHref(code);link.target='_top'});
   if(code===current)link.setAttribute('aria-current','page');
   else link.removeAttribute('aria-current');
 });
-
 const stats=[...d.querySelectorAll('.story-stats > div')];
 if(stats[1]){
   const value=stats[1].querySelector('b');
@@ -63,11 +62,10 @@ if(stats[1]){
   if(caption)caption.textContent=languageCaption[current]||languageCaption.ru;
   stats[1].setAttribute('aria-label',`RU, UZ, EN — ${languageCaption[current]||languageCaption.ru}`);
 }
-
 const refresh=()=>{
   links.forEach(link=>{
     const code=link.dataset.mentoraLang;
-    if(code)link.href=buildHref(code);
+    if(code){link.href=buildHref(code);link.target='_top'}
   });
   syncOuterVersionMeta();
 };
